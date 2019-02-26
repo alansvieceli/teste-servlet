@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.List, br.com.alan.gerenciador.models.Empresa" %>
+<%@ page import="java.util.List,br.com.alan.gerenciador.modelo.Empresa" %>
 <%@ page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -20,8 +20,8 @@
 	<ul>
 		<c:forEach items="${listaEmpresas}" var="empresa">		
 			<li>${empresa.nome} - <fmt:formatDate pattern="dd/MM/yyyy" value="${empresa.dataAbertura}"/> | 
-			<a href="/gerenciador/mostrarEmpresa?id=${empresa.id}">editar</a> | 
-			<a href="/gerenciador/removerEmpresa?id=${empresa.id}">remove</a> |</li>
+			<a href="/gerenciador/unicaEntrada?acao=mostraEmpresa&id=${empresa.id}">editar</a> | 
+			<a href="/gerenciador/unicaEntrada?acao=removeEmpresa&id=${empresa.id}">remove</a> |</li>
 		</c:forEach>		
 	</ul>
 	

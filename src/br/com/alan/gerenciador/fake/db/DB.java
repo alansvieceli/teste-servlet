@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import br.com.alan.gerenciador.models.Empresa;
+import br.com.alan.gerenciador.modelo.Empresa;
 
 public class DB {
 

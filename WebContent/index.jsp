@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:url value="/cadastrarEmpresa" var="linkNovaEmpresa"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/unicaEntrada" var="linkNovaEmpresa" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,18 +9,14 @@
 <title>Titulo</title>
 </head>
 <body>
-	<p>
-		<a href="/gerenciador/oi">Teste>></a>
-	</p>
-		
 	<form action="${linkNovaEmpresa}" method="post">
-
-		Nome (POST): <input type="text" name="nome"> <input type="submit"
+		<input type="hidden" name="acao" value="cadastraEmpresa"> Nome
+		(POST): <input type="text" name="nome"> <input type="submit"
 			title="Cadastrar">
 	</form>
-	
+
 	<p>
-		<a href="/gerenciador/listaEmpresas">Lista de Empresas</a>
+		<a href="/gerenciador/unicaEntrada?acao=listaEmpresas">Lista de Empresas</a>
 	</p>
 </body>
 </html>

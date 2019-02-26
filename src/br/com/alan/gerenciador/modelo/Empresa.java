@@ -1,4 +1,4 @@
-package br.com.alan.gerenciador.models;
+package br.com.alan.gerenciador.modelo;
 
 import java.util.Date;
 
