@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.alan.gerenciador.fake.db.DB;
 
-public class RemoveEmpresa {
-	
+public class RemoveEmpresa implements Acao {
+
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		int id = Integer.parseInt( (String) req.getParameter("id") );		
+
+		int id = Integer.parseInt((String) req.getParameter("id"));
 		DB banco = new DB();
 		banco.removerEmpresa(id);
-		
-		return "redirect:unicaEntrada?acao=listaEmpresas";
+
+		return "redirect:unicaEntrada?acao=ListaEmpresas";
 	}
 
 }

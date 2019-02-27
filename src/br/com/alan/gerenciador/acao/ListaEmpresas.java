@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alan.gerenciador.fake.db.DB;
 import br.com.alan.gerenciador.modelo.Empresa;
 
-public class ListaEmpresas {
-	
+public class ListaEmpresas implements Acao {
+
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		DB banco = new DB();
 		List<Empresa> lista = banco.getEmpresas();
-		
+
 		req.setAttribute("listaEmpresas", lista);
-		
-		return "forward:listaEmpresas.jsp";	
-		
+
+		return "forward:listaEmpresas.jsp";
+
 	}
 
 }

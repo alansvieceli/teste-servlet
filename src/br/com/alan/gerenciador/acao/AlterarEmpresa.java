@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.alan.gerenciador.fake.db.DB;
 import br.com.alan.gerenciador.modelo.Empresa;
-
-public class AlterarEmpresa {
+ 
+public class AlterarEmpresa implements Acao {
 
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nome = req.getParameter("nome");
@@ -20,7 +20,7 @@ public class AlterarEmpresa {
 		empresa.setNome(nome);
 		banco.alterandoEmpresa(empresa);
 		
-		return "redirect:unicaEntrada?acao=listaEmpresas";		
+		return "redirect:unicaEntrada?acao=ListaEmpresas";		
 	}
 	
 }

@@ -10,13 +10,13 @@
 </head>
 <body>
 	<form action="${linkNovaEmpresa}" method="post">
-		<input type="hidden" name="acao" value="cadastraEmpresa"> Nome
+		<input type="hidden" name="acao" value="CadastraEmpresa"> Nome
 		(POST): <input type="text" name="nome"> <input type="submit"
 			title="Cadastrar">
 	</form>
 
 	<p>
-		<a href="/gerenciador/unicaEntrada?acao=listaEmpresas">Lista de Empresas</a>
+		<a href="/gerenciador/controlador?acao=ListaEmpresas">Lista de Empresas</a>
 	</p>
 </body>
 </html>

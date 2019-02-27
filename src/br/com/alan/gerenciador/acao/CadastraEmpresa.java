@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alan.gerenciador.fake.db.DB;
 import br.com.alan.gerenciador.modelo.Empresa;
 
-public class CadastraEmpresa {
-	
+public class CadastraEmpresa implements Acao {
+
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nome = req.getParameter("nome");
 		Empresa empresa = new Empresa(nome);
-		
+
 		DB banco = new DB();
 		banco.adicionarEmpresa(empresa);
-	
-		return "redirect:unicaEntrada?acao=listaEmpresas";		
+
+		return "redirect:unicaEntrada?acao=ListaEmpresas";
 	}
 
 }
