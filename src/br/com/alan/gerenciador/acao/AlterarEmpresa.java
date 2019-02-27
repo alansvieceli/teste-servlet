@@ -11,7 +11,7 @@ import br.com.alan.gerenciador.modelo.Empresa;
 
 public class AlterarEmpresa {
 
-	public void executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nome = req.getParameter("nome");
 		int id = Integer.parseInt((String) req.getParameter("id"));		
 		
@@ -20,7 +20,7 @@ public class AlterarEmpresa {
 		empresa.setNome(nome);
 		banco.alterandoEmpresa(empresa);
 		
-		resp.sendRedirect("unicaEntrada?acao=listaEmpresas");
+		return "redirect:unicaEntrada?acao=listaEmpresas";		
 	}
 	
 }

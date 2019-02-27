@@ -2,6 +2,7 @@ package br.com.alan.gerenciador;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,30 +22,37 @@ public class UnicaEntradaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String controle = request.getParameter("acao");
+		String path = null;
 
-		if (controle.equals("listaEmpresas")) {			
+		if (controle.equals("listaEmpresas")) {
 			ListaEmpresas listaEmpresa = new ListaEmpresas();
-			listaEmpresa.executa(request, response);
+			path = listaEmpresa.executa(request, response);
 
-		} else if (controle.equals("removeEmpresa")) {			
+		} else if (controle.equals("removeEmpresa")) {
 			RemoveEmpresa removeEmpresa = new RemoveEmpresa();
-			removeEmpresa.executa(request, response);			
+			path = removeEmpresa.executa(request, response);
 
 		} else if (controle.equals("mostraEmpresa")) {
 			MostraEmpresa mostraEmpresa = new MostraEmpresa();
-			mostraEmpresa.executa(request, response);
-			
+			path = mostraEmpresa.executa(request, response);
+
 		} else if (controle.equals("cadastraEmpresa")) {
 			CadastraEmpresa cadastraEmpresa = new CadastraEmpresa();
-			cadastraEmpresa.executa(request, response);
-			
+			path = cadastraEmpresa.executa(request, response);
+
 		} else if (controle.equals("alterarEmpresa")) {
 			AlterarEmpresa alterarEmpresa = new AlterarEmpresa();
-			alterarEmpresa.executa(request, response);
-			
+			path = alterarEmpresa.executa(request, response);
+
 		}
-		
-		
+
+		String[] url = path.split(":");
+		if (url[0].equals("forward")) {
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/view/"+url[1]);
+			requestDispatcher.forward(request, response);
+		} else if (url[0].equals("redirect")) {
+			response.sendRedirect(url[1]);
+		}
 
 	}
 
