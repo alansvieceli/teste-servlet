@@ -17,7 +17,7 @@ public class ControladorServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		String controle = request.getParameter("acao");
 		String path = null;
 
@@ -26,6 +26,14 @@ public class ControladorServlet extends HttpServlet {
 		try {
 			Class classe = Class.forName(nomeDaClasse); // faz o import da classe
 			Acao acao = (Acao) classe.newInstance();
+			
+			boolean usuarioNaoEstaLogado = request.getSession().getAttribute("usuarioLogado") == null;
+			boolean EhUmaAcaoProtegida = acao.getProtegida();
+			if (EhUmaAcaoProtegida && usuarioNaoEstaLogado) {
+				response.sendRedirect("controlador?acao=LoginForm");
+				return;
+			}
+			
 			path = acao.executa(request, response);
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 			throw new ServletException(e);

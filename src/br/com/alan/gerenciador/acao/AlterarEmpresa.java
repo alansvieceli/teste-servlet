@@ -11,6 +11,7 @@ import br.com.alan.gerenciador.modelo.Empresa;
  
 public class AlterarEmpresa implements Acao {
 
+	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nome = req.getParameter("nome");
 		int id = Integer.parseInt((String) req.getParameter("id"));		
@@ -20,7 +21,12 @@ public class AlterarEmpresa implements Acao {
 		empresa.setNome(nome);
 		banco.alterandoEmpresa(empresa);
 		
-		return "redirect:unicaEntrada?acao=ListaEmpresas";		
+		return "redirect:controlador?acao=ListaEmpresas";		
+	}
+
+	@Override
+	public boolean getProtegida() {
+		return true;
 	}
 	
 }

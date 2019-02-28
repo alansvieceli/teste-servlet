@@ -9,5 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface Acao {
 
 	String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+	
+	boolean getProtegida();
 
 }

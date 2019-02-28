@@ -12,7 +12,9 @@ import br.com.alan.gerenciador.modelo.Empresa;
 
 public class ListaEmpresas implements Acao {
 
+	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		DB banco = new DB();
 		List<Empresa> lista = banco.getEmpresas();
 
@@ -21,5 +23,12 @@ public class ListaEmpresas implements Acao {
 		return "forward:listaEmpresas.jsp";
 
 	}
+
+	@Override
+	public boolean getProtegida() {
+		return true;
+	}
+	
+	
 
 }

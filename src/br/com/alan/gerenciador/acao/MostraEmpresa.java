@@ -11,6 +11,7 @@ import br.com.alan.gerenciador.modelo.Empresa;
 
 public class MostraEmpresa implements Acao {
 
+	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id = Integer.parseInt((String) req.getParameter("id"));
 		DB banco = new DB();
@@ -19,6 +20,12 @@ public class MostraEmpresa implements Acao {
 		req.setAttribute("empresa", empresa);
 
 		return "forward:formEditarEmpresa.jsp";
+	}
+
+	@Override
+	public boolean getProtegida() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

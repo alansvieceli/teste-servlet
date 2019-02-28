@@ -5,26 +5,23 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import br.com.alan.gerenciador.fake.db.DB;
-import br.com.alan.gerenciador.modelo.Empresa;
-
-public class CadastraEmpresa implements Acao {
+public class Logout implements Acao{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nome = req.getParameter("nome");
-		Empresa empresa = new Empresa(nome);
+		
+		HttpSession sessao = req.getSession();
+		//sessao.removeAttribute("usuarioLogado");
+		sessao.invalidate();
 
-		DB banco = new DB();
-		banco.adicionarEmpresa(empresa);
-
-		return "redirect:controlador?acao=ListaEmpresas";
+		return "redirect:controlador?acao=LoginForm";
 	}
-	
+
 	@Override
 	public boolean getProtegida() {
-		return true;
+		return false;
 	}
 
 }

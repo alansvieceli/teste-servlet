@@ -11,6 +11,8 @@
 <title>Listas de Empresa (JSTL)</title>
 </head>
 <body>
+	<c:import url="cabecalho.jsp"></c:import>
+	
 	<c:if test="${not empty nomeEmpresa}">
 		<p>Empresa <b>${ nomeEmpresa }</b> cadastrada com sucesso!</p> <br/>
 	</c:if>

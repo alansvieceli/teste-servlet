@@ -10,13 +10,19 @@ import br.com.alan.gerenciador.fake.db.DB;
 
 public class RemoveEmpresa implements Acao {
 
+	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		int id = Integer.parseInt((String) req.getParameter("id"));
 		DB banco = new DB();
 		banco.removerEmpresa(id);
 
-		return "redirect:unicaEntrada?acao=ListaEmpresas";
+		return "redirect:controlador?acao=ListaEmpresas";
+	}
+
+	@Override
+	public boolean getProtegida() {
+		return true;
 	}
 
 }
