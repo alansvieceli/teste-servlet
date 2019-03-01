@@ -12,6 +12,12 @@ public class Empresa {
 		this.nome = nome;
 		this.dataAbertura = new Date();
 	}
+	
+	public Empresa(int id, String nome) {
+		this.id = id;
+		this.nome = nome;
+		this.dataAbertura = new Date();
+	}
 
 	public int getId() {
 		return id;

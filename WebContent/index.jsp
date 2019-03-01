@@ -18,5 +18,13 @@
 	<p>
 		<a href="/gerenciador/controlador?acao=ListaEmpresas">Lista de Empresas</a>
 	</p>
+	
+	<p>
+		<a href="/gerenciador/empresas">Lista de Empresas (JSON)</a>
+	</p>
+	
+	<p>
+		<a href="/gerenciador/empresas?acao=xml">Lista de Empresas (XML)</a>
+	</p>
 </body>
 </html>

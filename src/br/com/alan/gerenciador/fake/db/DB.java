@@ -10,11 +10,15 @@ import br.com.alan.gerenciador.modelo.Usuario;
 
 public class DB {
 
-	public static int codigoEmpresa = 0;
+	public static int codigoEmpresa = 3;
 	public static List<Empresa> listaEmpresas = new ArrayList<>();
 	public static List<Usuario> listaUsuarios = new ArrayList<>();
 
 	static {
+		listaEmpresas.add(new Empresa(1, "Google"));
+		listaEmpresas.add(new Empresa(2, "Facebook"));
+		listaEmpresas.add(new Empresa(3, "Oracle"));		
+		
 		listaUsuarios.add(new Usuario("alan", "123456"));
 		listaUsuarios.add(new Usuario("jaque", "456852"));
 	}
